@@ -36,6 +36,7 @@ input[type=submit]:hover {
 	width: 600px;
 }
 </style>
+	<script type="text/javascript" src="js/noteBook/script.js"></script>
 </head>
 <center>
 	<body>
@@ -45,11 +46,9 @@ input[type=submit]:hover {
 		<div class="id1">
 			<form action="loginSuccess.do"  method="post"  onsubmit="return validateUser()">
 				<table cellspacing="2">
-					
 					<tr>
 						<td><center><h2>Login</h2></center></td>
 					</tr>
-					
 					<tr>
 						<td><div id="error" style="color: red; display: block">${error}</div></td>
 					</tr>
@@ -67,16 +66,41 @@ input[type=submit]:hover {
 					</tr>
 					<tr>
 						<td><input type="submit" id="submit" value="Login">
-					</tr>
-					
+					</tr><br><br>
+					<center>
 					<tr>
 						<td><br><center>Not a member?<a href="signup.do">Sign Up</a></center></td>
 					</tr>
-					
+					</center>
 				</table>
 			</form>
 		</div>
+        <script>
+    function validateUser() {
+	var flag=true;
+	var email = document.getElementById("email").value;
+	var password = document.getElementById("password").value;
+	if(password== ""){
+		flag = false;
+		document.getElementById("password_error").style.display = 'block';
+		} 
+	else{
+			document.getElementById("password_error").style.display = 'none';
+			}
+	if(email== "")
+		{
+		flag=false;
+		document.getElementById("email_error").style.display= 'block';
+		}
+	else{
+		document.getElementById("email_error").style.display= 'none';
+       }
+	
 
+	return flag;
+		
+	}
+        </script>
 	</body>
 </center>
 </html>
